@@ -1,3 +1,3 @@
-const MainPage = () => {
+const RootPage = () => {
   return <div></div>;
 };
