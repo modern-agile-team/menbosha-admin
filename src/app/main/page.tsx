@@ -1,5 +1,7 @@
+import LoginPage from "@/components/login/LoginPage";
+
 const RootPage = () => {
-  return <div></div>;
+  return <LoginPage />;
 };
 
 export default RootPage;
