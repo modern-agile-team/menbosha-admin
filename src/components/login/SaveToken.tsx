@@ -11,7 +11,6 @@ interface Company {
 }
 
 const SaveToken = ({ provider }: Company) => {
-  const router = useRouter();
   const { setLogin } = useAuthStore();
 
   const getToken = async () => {
@@ -24,21 +23,6 @@ const SaveToken = ({ provider }: Company) => {
       setLogin();
     } catch (err) {
       alert("로그인 도중 오류가 발생했습니다");
-      console.log(err);
-    } finally {
-      const currentUrl = window.sessionStorage.getItem("CURRENT_URL");
-      if (currentUrl) {
-        router.push({
-          pathname: `https://menbosha.kr${currentUrl}`,
-          query: {
-            filterId: 1
-          }
-        });
-      } else {
-        router.push({
-          pathname: `https://menbosha.kr/`
-        });
-      }
     }
   };
 
