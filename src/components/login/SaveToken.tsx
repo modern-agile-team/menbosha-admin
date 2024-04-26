@@ -13,23 +13,6 @@ interface Company {
 const SaveToken = ({ provider }: Company) => {
   const { setLogin } = useAuthStore();
 
-  const getToken = async () => {
-    try {
-      const code = new URL(window.location.href).searchParams.get("code");
-
-      const result = await AUTH.getToken(provider, code as string);
-      localStorage.setItem("accessToken", result.accessToken);
-      localStorage.setItem("provider", provider);
-      setLogin();
-    } catch (err) {
-      alert("로그인 도중 오류가 발생했습니다");
-    }
-  };
-
-  useEffect(() => {
-    getToken();
-  }, []);
-
   return (
     <div>
       <div>로딩중...</div>
