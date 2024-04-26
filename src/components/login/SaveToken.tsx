@@ -1,8 +1,8 @@
-import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 import AUTH from "@/apis/auth";
 import { useAuthStore } from "@/store/authStore";
+import { useRouter } from "next/navigation";
 
 interface Company {
   provider: string;
