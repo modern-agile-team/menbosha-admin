@@ -1,5 +1,3 @@
-"use client";
-
 import * as dotenv from "dotenv";
 import Image from "next/image";
 
