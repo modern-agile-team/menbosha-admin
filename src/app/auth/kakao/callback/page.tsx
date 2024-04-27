@@ -1,7 +1,5 @@
-import SaveToken from "@/components/login/SaveToken";
-
 const KakaoCallBackComponent = () => {
-  return <SaveToken provider="kakao" />;
+  return <div>카카오로그인</div>;
 };
 
 export default KakaoCallBackComponent;

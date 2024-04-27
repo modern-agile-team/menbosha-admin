@@ -1,7 +1,5 @@
-import SaveToken from "@/components/login/SaveToken";
-
 const GoogleCallBackComponent = () => {
-  return <SaveToken provider="goolge" />;
+  return <div>구글로그인</div>;
 };
 
 export default GoogleCallBackComponent;

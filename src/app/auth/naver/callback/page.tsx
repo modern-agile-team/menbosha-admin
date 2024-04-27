@@ -1,7 +1,5 @@
-import SaveToken from "@/components/login/SaveToken";
-
 const NaverCallBackComponent = () => {
-  return <SaveToken provider="naver" />;
+  return <div>네이버로그인</div>;
 };
 
 export default NaverCallBackComponent;
