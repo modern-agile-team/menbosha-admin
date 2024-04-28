@@ -1,14 +1,5 @@
-import * as dotenv from "dotenv";
 import Image from "next/image";
 
-dotenv.config();
-
-//랜덤 난수 생성 함수
-// const getRandomInt = (min: number, max: number) => {
-//   min = Math.ceil(min);
-//   max = Math.floor(max);
-//   return Math.floor(Math.random() * (max - min) + min);
-// };
 export const Naver = () => {
   const naverLogin = () => {
     window.location.href = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${process.env.NEXT_PUBLIC_NAVER_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_NAVER_REDIRECT_URL}&state=test`;
