@@ -4,6 +4,7 @@
 import { ThemeProvider, css } from "@emotion/react";
 import RootStyleRegistry from "./RootStyleRegistry";
 import LoginPage from "@/components/login/LoginPage";
+import Link from "next/link";
 
 const theme = {
   colors: {
