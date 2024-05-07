@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+"use client";
 
 import * as S from "@/styles/login-styles/LoginStyled";
 import Link from "next/link";

@@ -1,7 +1,9 @@
+import ReportListContainer from "@/components/report/ReportListCotainer";
+
 const ReportPage = () => {
   return (
     <div>
-      <div>신고페이지</div>
+      <ReportListContainer />
     </div>
   );
 };
