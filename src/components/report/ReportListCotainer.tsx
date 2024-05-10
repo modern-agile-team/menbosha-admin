@@ -27,7 +27,7 @@ const ReportListContainer = () => {
 
   useEffect(() => {
     ReportPagination();
-  }, []);
+  }, [getPageCount]);
 
   return (
     <div css={S.ReportContainer}>
