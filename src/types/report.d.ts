@@ -11,25 +11,23 @@ export type ReportParamsType = {
   id?: number;
   reportUserId?: number; //신고한 유저 필터링
   reportedUserId?: number; //신고 당한 유저 필터링
-  type: reportType;
-  reason: string;
+  type?: reportType; //신고타입 필터링
+  reason?: string; //신고사유 필터링
   orderField?: string;
   sortOrder?: "ASC" | "DESC";
 };
 
 export type ReportListType = {
-  ReportPaginationResponseDto: {
-    totalCount: number;
-    currentPage: number;
-    pageSize: number;
-    hasNext: boolean;
-    lastPage: number;
-    reportsItemDto: {
-      id: number;
-      reportUserId: number;
-      reportedUserId: number;
-      type: reportType;
-      createdAt: string;
-    }[];
-  };
+  totalCount: number;
+  currentPage: number;
+  pageSize: number;
+  hasNext: boolean;
+  lastPage: number;
+  reportsItemDto: {
+    id: number;
+    reportUserId: number;
+    reportedUserId: number;
+    type: reportType;
+    createdAt: string;
+  }[];
 };
