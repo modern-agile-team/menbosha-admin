@@ -4,13 +4,15 @@
 import REPORT from "@/apis/report";
 import * as S from "@/styles/report-styles/reportStyled";
 import { ReportListType, ReportParamsType } from "@/types/report";
+import { read } from "fs";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const ReportListContainer = () => {
   const [getPageCount, setPageCount] = useState(1);
   const [getTotalPage, setTotalPage] = useState(1);
   const [getReportList, setReportList] = useState<
-    ReportListType["ReportPaginationResponseDto"]["reportsItemDto"]
+    ReportListType["reportsItemDto"]
   >([]);
 
   const ReportPagination = async () => {
@@ -19,13 +21,16 @@ const ReportListContainer = () => {
       pageSize: 5
     };
     const result = await REPORT.ReportList(params);
-    // setTotalPage(result.ReportPaginationResponseDto.lastPage);
-    // setReportList(result.ReportPaginationResponseDto.reportsItemDto);
-    console.log(result);
+    setTotalPage(result.lastPage);
+    setReportList(result.reportsItemDto);
   };
 
   useEffect(() => {
     ReportPagination();
+    setTimeout(() => {
+      console.log(getTotalPage);
+      console.log(getReportList);
+    }, 1000);
   }, []);
 
   return (
@@ -39,6 +44,30 @@ const ReportListContainer = () => {
           <div>신고 종류</div>
           <div>신고 시각</div>
         </div>
+        {getReportList.map((data, idx) => {
+          return (
+            <Link
+              href={{
+                pathname: `/report/detail`,
+                query: {
+                  id: data.id
+                }
+              }}
+              css={{
+                textDecoration: "none",
+                color: "#000"
+              }}
+            >
+              <div key={data.id} css={S.ReportGrid}>
+                <div>{idx}</div>
+                <div>{data.reportUserId}</div>
+                <div>{data.reportedUserId}</div>
+                <div>{data.type}</div>
+                <div>{data.createdAt.slice(0, 10)}</div>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

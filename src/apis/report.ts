@@ -10,10 +10,9 @@ const REPORT = {
     const queryParams = Object.fromEntries(
       Object.entries(params).filter(([_, value]) => value !== undefined)
     );
-    const result: AxiosResponse = await instance.get(`${REPORT.path}`, {
+    const result: AxiosResponse<any> = await instance.get(`${REPORT.path}`, {
       params: queryParams
     });
-    console.log(result);
     return result.data.contents;
   }
 };

@@ -18,18 +18,16 @@ export type ReportParamsType = {
 };
 
 export type ReportListType = {
-  ReportPaginationResponseDto: {
-    totalCount: number;
-    currentPage: number;
-    pageSize: number;
-    hasNext: boolean;
-    lastPage: number;
-    reportsItemDto: {
-      id: number;
-      reportUserId: number;
-      reportedUserId: number;
-      type: reportType;
-      createdAt: string;
-    }[];
-  };
+  totalCount: number;
+  currentPage: number;
+  pageSize: number;
+  hasNext: boolean;
+  lastPage: number;
+  reportsItemDto: {
+    id: number;
+    reportUserId: number;
+    reportedUserId: number;
+    type: reportType;
+    createdAt: string;
+  }[];
 };
