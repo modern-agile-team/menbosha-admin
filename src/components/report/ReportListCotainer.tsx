@@ -27,10 +27,6 @@ const ReportListContainer = () => {
 
   useEffect(() => {
     ReportPagination();
-    setTimeout(() => {
-      console.log(getTotalPage);
-      console.log(getReportList);
-    }, 1000);
   }, []);
 
   return (
@@ -44,7 +40,7 @@ const ReportListContainer = () => {
           <div>신고 종류</div>
           <div>신고 시각</div>
         </div>
-        {getReportList.map((data, idx) => {
+        {getReportList.map((data) => {
           return (
             <Link
               href={{
@@ -59,7 +55,7 @@ const ReportListContainer = () => {
               }}
             >
               <div key={data.id} css={S.ReportGrid}>
-                <div>{idx}</div>
+                <div>{data.id}</div>
                 <div>{data.reportUserId}</div>
                 <div>{data.reportedUserId}</div>
                 <div>{data.type}</div>
