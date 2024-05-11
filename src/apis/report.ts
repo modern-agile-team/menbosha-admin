@@ -13,6 +13,7 @@ const REPORT = {
     const result: AxiosResponse<any> = await instance.get(`${REPORT.path}`, {
       params: queryParams
     });
+    console.log(result);
     return result.data.contents;
   }
 };
