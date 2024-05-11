@@ -8,7 +8,12 @@ export const NavigateBarContainer = css`
     margin: 1vw;
     text-decoration: none;
     color: #ff772b;
-    font-size: 20px;
+    width: 15vw;
+    font-size: 1em;
+    margin: auto 0px;
+    &:hover {
+      font-weight: bold;
+    }
   }
 `;
 
