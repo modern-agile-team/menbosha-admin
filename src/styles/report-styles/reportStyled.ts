@@ -25,6 +25,9 @@ export const PaginationContainer = css`
   display: flex;
   justify-content: center;
   margin: 2vw;
+  & > :nth-of-type(n) {
+    cursor: pointer;
+  }
 `;
 
 export const PaginationElementContainer = css`
@@ -32,6 +35,7 @@ export const PaginationElementContainer = css`
   justify-content: center;
 `;
 
-export const PaginationElement = css`
+export const PaginationElement = (page: number, ownPage: number) => css`
   margin: 0px 1vw;
+  border-bottom: ${page === ownPage ? "3px solid #000" : "none"};
 `;

@@ -14,15 +14,11 @@ const ReportListContainer = () => {
   const [getReportList, setReportList] = useState<
     ReportListType["reportsItemDto"]
   >([]);
-  const [getUserId, setUserId] = useState({
-    reportId: 0,
-    reportedId: 0
-  });
 
   const ReportPagination = async () => {
     const params: ReportParamsType = {
       page: getPageCount,
-      pageSize: 5
+      pageSize: 2
     };
     const result = await REPORT.ReportList(params);
     setTotalPage(result.lastPage);
@@ -38,7 +34,7 @@ const ReportListContainer = () => {
     for (let i = 0; i < getTotalPage; i++) {
       page.push(
         <div
-          css={S.PaginationElement}
+          css={S.PaginationElement(getPageCount, i + 1)}
           onClick={() => setPageCount(i + 1)}
           key={i}
         >
@@ -47,6 +43,22 @@ const ReportListContainer = () => {
       );
     }
     return page;
+  };
+
+  const PrevNextBtnHandler = (type: string) => {
+    if (type === "prev") {
+      if (getPageCount <= 1) {
+        setPageCount(getTotalPage);
+      } else {
+        setPageCount((prev) => prev - 1);
+      }
+    } else {
+      if (getPageCount >= getTotalPage) {
+        setPageCount(1);
+      } else {
+        setPageCount((prev) => prev + 1);
+      }
+    }
   };
 
   return (
@@ -94,9 +106,9 @@ const ReportListContainer = () => {
         </div>
       </div>
       <div css={S.PaginationContainer}>
-        <div>&lt;</div>
+        <div onClick={() => PrevNextBtnHandler("prev")}>&lt;</div>
         <div css={S.PaginationElementContainer}>{paginationBar()}</div>
-        <div>&gt;</div>
+        <div onClick={() => PrevNextBtnHandler("next")}>&gt;</div>
       </div>
     </div>
   );
