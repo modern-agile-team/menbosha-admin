@@ -4,9 +4,9 @@
 import REPORT from "@/apis/report";
 import * as S from "@/styles/report-styles/reportStyled";
 import { ReportListType, ReportParamsType } from "@/types/report";
-import { read } from "fs";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ReportUserBox from "./ReportUserBox";
 
 const ReportListContainer = () => {
   const [getPageCount, setPageCount] = useState(1);
@@ -14,11 +14,15 @@ const ReportListContainer = () => {
   const [getReportList, setReportList] = useState<
     ReportListType["reportsItemDto"]
   >([]);
+  const [getUserId, setUserId] = useState({
+    reportId: 0,
+    reportedId: 0
+  });
 
   const ReportPagination = async () => {
     const params: ReportParamsType = {
       page: getPageCount,
-      pageSize: 2
+      pageSize: 5
     };
     const result = await REPORT.ReportList(params);
     setTotalPage(result.lastPage);
@@ -77,9 +81,9 @@ const ReportListContainer = () => {
                   <div css={S.ReportGrid}>
                     <div>{data.id}</div>
                     <div>{data.reportedUserId}</div>
-                    <div>신고당한 유저 이름</div>
+                    <ReportUserBox id={data.reportedUserId}></ReportUserBox>
                     <div>{data.reportUserId}</div>
-                    <div>신고 한 유저 이름</div>
+                    <ReportUserBox id={data.reportUserId}></ReportUserBox>
                     <div>{data.type}</div>
                     <div>{data.createdAt.slice(0, 10)}</div>
                   </div>

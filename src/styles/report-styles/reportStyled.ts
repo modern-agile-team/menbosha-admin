@@ -8,6 +8,7 @@ export const ReportContainer = css`
 export const ReportGrid = css`
   display: grid;
   grid-template-columns: 0.3fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  font-size: 1em;
 `;
 
 export const ReportListGrid = css`
@@ -17,6 +18,7 @@ export const ReportListGrid = css`
 
 export const ReportListContainer = css`
   border: 2px solid #ff772b;
+  padding: 1vw;
 `;
 
 export const PaginationContainer = css`
