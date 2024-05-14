@@ -2,7 +2,7 @@
 const nextConfig = {
   swcMinify: true,
   compiler: {
-    removeConsole: true
+    removeConsole: false
   }
 };
 

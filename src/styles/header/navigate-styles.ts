@@ -5,12 +5,12 @@ export const NavigateBarContainer = css`
   width: 90%;
   justify-content: center;
   & > :nth-child(n) {
-    margin: 1vw;
     text-decoration: none;
     color: #ff772b;
-    width: 15vw;
+    width: 10vw;
     font-size: 1em;
-    margin: auto 0px;
+    text-align: center;
+    margin: auto 5vw;
     &:hover {
       font-weight: bold;
     }
