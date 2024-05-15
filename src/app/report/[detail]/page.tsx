@@ -1,10 +1,15 @@
 "use client";
+import ReportDetailContainer from "@/components/report/ReportDetailContainer";
 import { useSearchParams } from "next/navigation";
 
 const ReportDetail = () => {
   const params = useSearchParams();
 
-  return <div>{params.get("id")}번 페이지</div>;
+  return (
+    <ReportDetailContainer
+      reportId={Number(params.get("id"))}
+    ></ReportDetailContainer>
+  );
 };
 
 export default ReportDetail;
