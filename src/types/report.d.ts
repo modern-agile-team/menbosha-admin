@@ -33,7 +33,7 @@ export type ReportListType = {
 };
 
 export type ReportDetailType = {
-  createAt: string;
+  createdAt: string;
   id: number;
   reason: string;
   reportedUserId: number;
