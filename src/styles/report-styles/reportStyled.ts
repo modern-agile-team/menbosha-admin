@@ -54,4 +54,5 @@ export const ReportedUserBox = css`
 export const BorderLine = css`
   width: 100%;
   border-bottom: 1px solid #999999bf;
+  margin: 30px 0px;
 `;

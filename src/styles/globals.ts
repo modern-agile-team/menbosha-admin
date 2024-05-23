@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import theme from "./theme";
 
 const ArrowBase = css`
   display: inline-block;
@@ -39,3 +40,36 @@ export const ArrowIcon = (direction: string) => {
       `;
   }
 };
+
+type FlexType = {
+  display?: "flex" | "block" | "inline-flex" | "inline-block";
+  direction?: "column" | "row" | "column-reverse" | "row-reverse";
+  justify?: "start" | "end" | "center";
+  align?: "start" | "end" | "center";
+};
+
+export const FlexBox = ({
+  display = "flex",
+  direction = "column",
+  justify = "center",
+  align = "center"
+}: FlexType) => css`
+  display: ${display};
+  flex-direction: ${direction};
+  justify-content: ${justify};
+  align-items: ${align};
+`;
+
+export const ButtonBox = css`
+  border: 1px solid ${theme.main.primary};
+  text-align: center;
+  width: 100px;
+  padding: 3px 7px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: all 300ms ease-in;
+  &:hover {
+    background-color: ${theme.main.primary};
+  }
+`;
