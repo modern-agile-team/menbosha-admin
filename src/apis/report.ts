@@ -25,6 +25,13 @@ const REPORT = {
       `${REPORT.path}/${reportId}`
     );
     return result.data.contents;
+  },
+
+  async RemoveReportInfo(reportId: number): Promise<any> {
+    const result: AxiosResponse<any> = await instance.delete(
+      `${REPORT.path}/${reportId}`
+    );
+    return result;
   }
 };
 
