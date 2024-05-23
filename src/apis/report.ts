@@ -1,6 +1,10 @@
 import { AxiosResponse } from "axios";
 import instance from "./axiosInstance";
-import { ReportListType, ReportParamsType } from "@/types/report";
+import {
+  ReportDetailType,
+  ReportListType,
+  ReportParamsType
+} from "@/types/report";
 
 const REPORT = {
   path: "/admins/reports",
@@ -13,8 +17,21 @@ const REPORT = {
     const result: AxiosResponse<any> = await instance.get(`${REPORT.path}`, {
       params: queryParams
     });
-    console.log(result);
     return result.data.contents;
+  },
+
+  async ReportDetail(reportId: number): Promise<ReportDetailType> {
+    const result: AxiosResponse<any> = await instance.get(
+      `${REPORT.path}/${reportId}`
+    );
+    return result.data.contents;
+  },
+
+  async RemoveReportInfo(reportId: number): Promise<any> {
+    const result: AxiosResponse<any> = await instance.delete(
+      `${REPORT.path}/${reportId}`
+    );
+    return result;
   }
 };
 

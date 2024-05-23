@@ -31,3 +31,12 @@ export type ReportListType = {
     createdAt: string;
   }[];
 };
+
+export type ReportDetailType = {
+  createdAt: string;
+  id: number;
+  reason: string;
+  reportedUserId: number;
+  reportUserId: number;
+  type: reportType;
+};

@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import theme from "../theme";
 
 export const ReportContainer = css`
   display: flex;
@@ -17,7 +18,7 @@ export const ReportListGrid = css`
 `;
 
 export const ReportListContainer = css`
-  border: 2px solid #ff772b;
+  border: 2px solid ${theme.main.primary};
   padding: 1vw;
 `;
 
@@ -38,4 +39,20 @@ export const PaginationElementContainer = css`
 export const PaginationElement = (page: number, ownPage: number) => css`
   margin: 0px 1vw;
   border-bottom: ${page === ownPage ? "3px solid #000" : "none"};
+`;
+
+export const ReportDetailContainer = css`
+  display: flex;
+  justify-content: left;
+  margin-left: 12vw;
+`;
+
+export const ReportedUserBox = css`
+  display: flex;
+`;
+
+export const BorderLine = css`
+  width: 100%;
+  border-bottom: 1px solid #999999bf;
+  margin: 30px 0px;
 `;
