@@ -7,7 +7,7 @@ import ReportUserBox from "./ReportUserBox";
 import * as S from "@/styles/report-styles/reportStyled";
 import * as G from "@/styles/globals";
 import ADMINSUSERS from "@/apis/admin-users";
-import { Prosto_One } from "next/font/google";
+import { redirect } from "next/navigation";
 
 type ReportDetailPropsType = {
   reportId: number;
@@ -15,22 +15,38 @@ type ReportDetailPropsType = {
 
 const ReportDetailContainer = (props: ReportDetailPropsType) => {
   const [getDetailInfo, setDetailInfo] = useState<ReportDetailType>();
+  const [bannedDay, setBannedDay] = useState(1);
 
   const LoadReportDetailInfo = async () => {
     const result = await REPORT.ReportDetail(props.reportId);
     setDetailInfo(result);
   };
 
-  const userBannedHandler = async (reportId: number, type: number) => {
+  const userBannedHandler = async (
+    reportId: number,
+    type: number,
+    reason?: string,
+    BannedDay?: number
+  ) => {
     switch (type) {
       case 1:
         if (confirm("정말로 밴(정지) 시키시겠습니까?")) {
-          await ADMINSUSERS.userBanned(reportId);
+          const result = await ADMINSUSERS.userBanned(
+            reportId,
+            reason as string,
+            BannedDay as number
+          );
+          if (!result) {
+            redirect(`/ban`);
+          }
         }
         break;
       case 2:
         if (confirm("정말로 신고를 삭제 하시겠습니까?")) {
-          await REPORT.RemoveReportInfo(reportId);
+          const result = await REPORT.RemoveReportInfo(reportId);
+          if (!result) {
+            redirect(`/report`);
+          }
         }
         break;
     }
@@ -65,7 +81,14 @@ const ReportDetailContainer = (props: ReportDetailPropsType) => {
           <div css={G.FlexBox({ direction: "row" })}>
             <div
               css={G.ButtonBox}
-              onClick={() => userBannedHandler(getDetailInfo.reportedUserId, 1)}
+              onClick={() =>
+                userBannedHandler(
+                  getDetailInfo.reportedUserId,
+                  1,
+                  getDetailInfo.reason,
+                  bannedDay
+                )
+              }
             >
               유저밴
             </div>
