@@ -7,7 +7,7 @@ import ReportUserBox from "./ReportUserBox";
 import * as S from "@/styles/report-styles/reportStyled";
 import * as G from "@/styles/globals";
 import ADMINSUSERS from "@/apis/admin-users";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 type ReportDetailPropsType = {
   reportId: number;
@@ -59,6 +59,7 @@ const period = [
 const ReportDetailContainer = (props: ReportDetailPropsType) => {
   const [getDetailInfo, setDetailInfo] = useState<ReportDetailType>();
   const [bannedDay, setBannedDay] = useState(1);
+  const router = useRouter();
 
   const LoadReportDetailInfo = async () => {
     const result = await REPORT.ReportDetail(props.reportId);
@@ -80,7 +81,7 @@ const ReportDetailContainer = (props: ReportDetailPropsType) => {
             BannedDay as number
           );
           if (!result) {
-            redirect(`/ban`);
+            router.push(`/ban`);
           }
         }
         break;
@@ -88,7 +89,7 @@ const ReportDetailContainer = (props: ReportDetailPropsType) => {
         if (confirm("정말로 신고를 삭제 하시겠습니까?")) {
           const result = await REPORT.RemoveReportInfo(reportId);
           if (!result) {
-            redirect(`/report`);
+            router.push(`/report`);
           }
         }
         break;
