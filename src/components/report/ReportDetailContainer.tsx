@@ -13,6 +13,49 @@ type ReportDetailPropsType = {
   reportId: number;
 };
 
+const period = [
+  {
+    id: 1,
+    description: "1일 밴"
+  },
+  {
+    id: 2,
+    description: "2일 밴"
+  },
+  {
+    id: 3,
+    description: "3일 밴"
+  },
+  {
+    id: 4,
+    description: "4일 밴"
+  },
+  {
+    id: 5,
+    description: "5일 밴"
+  },
+  {
+    id: 6,
+    description: "6일 밴"
+  },
+  {
+    id: 7,
+    description: "7일 밴"
+  },
+  {
+    id: 8,
+    description: "8일 밴"
+  },
+  {
+    id: 9,
+    description: "9일 밴"
+  },
+  {
+    id: 10,
+    description: "10일 밴"
+  }
+];
+
 const ReportDetailContainer = (props: ReportDetailPropsType) => {
   const [getDetailInfo, setDetailInfo] = useState<ReportDetailType>();
   const [bannedDay, setBannedDay] = useState(1);
@@ -78,6 +121,35 @@ const ReportDetailContainer = (props: ReportDetailPropsType) => {
           <div>사유 : [{getDetailInfo.type}]</div>
           <div>{getDetailInfo.reason}</div>
           <div css={S.BorderLine}></div>
+          <div
+            css={G.FlexBox({
+              display: "flex",
+              justify: "start",
+              direction: "row"
+            })}
+          >
+            {period.map((data) => {
+              return (
+                <div>
+                  {data.id === bannedDay ? (
+                    <div
+                      onClick={() => setBannedDay(data.id)}
+                      css={S.ReportPeriodBox(1)}
+                    >
+                      {data.description}
+                    </div>
+                  ) : (
+                    <div
+                      onClick={() => setBannedDay(data.id)}
+                      css={S.ReportPeriodBox(2)}
+                    >
+                      {data.description}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
           <div css={G.FlexBox({ direction: "row" })}>
             <div
               css={G.ButtonBox}
