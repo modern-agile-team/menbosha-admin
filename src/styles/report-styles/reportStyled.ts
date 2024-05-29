@@ -56,3 +56,15 @@ export const BorderLine = css`
   border-bottom: 1px solid #999999bf;
   margin: 30px 0px;
 `;
+
+export const ReportPeriodBox = (type: number) => css`
+  background-color: ${type === 1 ? theme.main.primary : "#FFFFFF"};
+  cursor: pointer;
+  padding: 0.5vw;
+  margin: 1vw 0.5vw;
+  border-radius: 30px;
+  transition: all 300ms ease;
+  &:hover {
+    background-color: ${theme.main.primary};
+  }
+`;

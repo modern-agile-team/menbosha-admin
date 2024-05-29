@@ -48,6 +48,13 @@ type FlexType = {
   align?: "start" | "end" | "center";
 };
 
+/**
+ * FlexBoxParamsType
+ * @param display?: "flex" | "block" | "inline-flex" | "inline-block";
+ * @param direction?: "column" | "row" | "column-reverse" | "row-reverse";
+ * @param justify?: "start" | "end" | "center";
+ * @param align?: "start" | "end" | "center";
+ */
 export const FlexBox = ({
   display = "flex",
   direction = "column",
