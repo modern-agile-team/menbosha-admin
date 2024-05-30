@@ -1,10 +1,12 @@
+import BanListContainer from "@/components/ban/BanList";
 import NavigateBar from "@/components/header/NavigateBar";
+import ReportListContainer from "@/components/report/ReportListCotainer";
 
 const BanPage = () => {
   return (
     <div>
       <NavigateBar />
-      <div>벤 페이지</div>
+      <BanListContainer />
     </div>
   );
 };

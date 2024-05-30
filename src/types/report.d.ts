@@ -1,3 +1,5 @@
+import { PaginationPageType } from "./common";
+
 /**신고 종류 */
 enum reportType {
   "증오발언 및 혐오표현 게시글",
@@ -17,12 +19,7 @@ export type ReportParamsType = {
   sortOrder?: "ASC" | "DESC";
 };
 
-export type ReportListType = {
-  totalCount: number;
-  currentPage: number;
-  pageSize: number;
-  hasNext: boolean;
-  lastPage: number;
+export type ReportListType = PaginationPageType<{
   reportsItemDto: {
     id: number;
     reportUserId: number;
@@ -30,7 +27,7 @@ export type ReportListType = {
     type: reportType;
     createdAt: string;
   }[];
-};
+}>;
 
 export type ReportDetailType = {
   createdAt: string;
