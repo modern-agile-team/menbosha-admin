@@ -22,3 +22,7 @@ export type BanListType = PaginationPageType<{
     endAt: string;
   }[];
 }>;
+
+export type BanDetailPropsType = {
+  banId: number;
+};

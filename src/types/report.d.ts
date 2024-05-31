@@ -37,3 +37,7 @@ export type ReportDetailType = {
   reportUserId: number;
   type: reportType;
 };
+
+export type ReportDetailPropsType = {
+  reportId: number;
+};

@@ -1,17 +1,13 @@
 /** @jsxImportSource @emotion/react */
 
 import REPORT from "@/apis/report";
-import { ReportDetailType } from "@/types/report";
+import { ReportDetailPropsType, ReportDetailType } from "@/types/report";
 import { useEffect, useState } from "react";
 import ReportUserBox from "./ReportUserBox";
 import * as S from "@/styles/report-styles/reportStyled";
 import * as G from "@/styles/globals";
 import ADMINSUSERS from "@/apis/admin-users";
 import { useRouter } from "next/navigation";
-
-type ReportDetailPropsType = {
-  reportId: number;
-};
 
 const period = [
   {
