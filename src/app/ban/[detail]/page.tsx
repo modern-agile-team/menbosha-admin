@@ -9,7 +9,7 @@ const BanDetailPage = () => {
   return (
     <div>
       <NavigateBar />
-      <BanDetailContainer banId={Number(params.get(""))} />
+      <BanDetailContainer banId={Number(params.get("id"))} />
     </div>
   );
 };

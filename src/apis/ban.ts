@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import instance from "./axiosInstance";
-import { BanListType, BanParamsType } from "@/types/ban";
+import { BanDetailReturnType, BanListType, BanParamsType } from "@/types/ban";
 
 const BAN = {
   path: "/admins/banned-users",
@@ -12,6 +12,12 @@ const BAN = {
     const result: AxiosResponse<any> = await instance.get(`${BAN.path}`, {
       params: queryParams
     });
+    return result.data.contents;
+  },
+  async BanDetailApi(banId: number): Promise<BanDetailReturnType> {
+    const result: AxiosResponse<any> = await instance.get(
+      `${BAN.path}/${banId}`
+    );
     return result.data.contents;
   }
 };
