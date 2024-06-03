@@ -22,3 +22,18 @@ export type BanListType = PaginationPageType<{
     endAt: string;
   }[];
 }>;
+
+/**밴 라우트 번호 props타입 */
+export type BanDetailPropsType = {
+  banId: number;
+};
+
+/**밴 api return type */
+export type BanDetailReturnType = {
+  id: number;
+  banUserId: number;
+  bannedUserId: number;
+  reason: string;
+  bannedAt: string;
+  endAt: string;
+};
